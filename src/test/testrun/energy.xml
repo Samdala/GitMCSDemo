@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyMCS" parallel="false" verbose="1" preserve-order="true">
+	<listeners>
+		<listener class-name="test.framework.MyListener"/>
+	</listeners>
+	<test name="MYMCStestsEnergy" preserve-order="true">
+		<packages>
+			<package name="test.energy.supplypointypes"/>
+			<package name="test.energy.energyratings"/>
+			<package name="test.energy.supplypoints"/>
+			<package name="test.energy.meteringobjectstatuses"/>
+			<package name="test.energy.measurementtypes"/>
+			<package name="test.energy.measuretypes"/>
+			<package name="test.energy.measuretemplates"/>
+			<package name="test.energy.gauges"/>
+			<package name="test.energy.commodities"/>
+			<package name="test.energy.weatherstations"/>
+			<package name="test.energy.navigator"/>
+			<package name="test.energy.collectors"/>
+			<package name="test.energy.meters"/>
+			<package name="test.energy.energylabels"/>
+			<package name="test.energy.parameters"/>
+			<package name="test.energy.tariffcalendars"/>
+			<package name="test.energy.benchmarks"/>
+			<package name="test.energy.energyobjectstatuses"/>
+			<package name="test.energy.energyobjecttype"/>
+			<package name="test.energy.energyobjects"/>
+			<package name="test.energy.occurrencetypes"/>
+			<package name="test.energy.occurrence"/>
+		</packages>
+	</test>
+</suite>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyMCS" parallel="false" verbose="1" preserve-order="true">
+	<listeners>
+		<listener class-name="test.framework.MyListener"/>
+	</listeners>
+	<test name="MYMCStestsLogin" preserve-order="true">
+		<packages>
+			<package name="test.generalweb.login"/>
+		</packages>
+	</test>
+	<test name="MYMCStestsGeneralRight" preserve-order="true">
+		<packages>
+			<package name="test.generalweb.rightvisibility"/>
+		</packages>
+	</test>
+	<test name="MYMCStestsGeneral" preserve-order="true">
+		<packages>
+			<package name="test.generalweb.activity"/>
+			<package name="test.generalweb.overviewdefinition"/>  
+			<package name="test.generalweb.calltemplates"/>      
+			<package name="test.generalweb.receptiondesk"/>
+			<package name="test.generalweb.service"/>
+			<package name="test.generalweb.today"/>
+			<package name="test.generalweb.admin"/>
+		</packages>
+	</test>
+</suite>

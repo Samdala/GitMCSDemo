@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyMCS" parallel="false" verbose="1" preserve-order="true">
+	<listeners>
+		<listener class-name="test.framework.MyListener" />
+	</listeners>
+	<test name="MYMCSReservationTests" preserve-order="true">
+		<classes>
+			<class name="test.generalweb.reservation.ReservationAccessTestSuite"/>
+			<class name="test.generalweb.reservation.ReservationMyReservationsCRUDTestSuite"/>
+			<class name="test.generalweb.reservation.ReservationNavigationTestSuite"/>
+			<class name="test.generalweb.reservation.ReservationRoomCRUDTestSuite"/>
+			<class name="test.generalweb.reservation.ReservationsCalendarCRUDTestSuite"/>
+		</classes>
+
+	</test>
+</suite>
+

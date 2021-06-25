@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyMCS" parallel="false" verbose="1" preserve-order="true">
+
+	<listeners>
+		<listener class-name="test.framework.MyListener" />
+	</listeners>
+
+
+	<test name="MYMCStestsSLAManagemt" preserve-order="true">
+
+		<packages>
+
+			<package name="test.generalweb.slamanagement" />
+
+		</packages>
+
+	</test>
+
+</suite>
+

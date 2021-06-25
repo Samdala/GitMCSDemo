@@ -1,0 +1,5 @@
+test.configuration
+test.energyconfiguration
+test.framework
+test.framework.dataproviders
+test.framework.webelement

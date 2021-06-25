@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="MyMCS">
+	<property environment="env"/>
+	<property name="debuglevel" value="source,lines,vars"/>
+	<property name="target" value="1.7"/>
+	<property name="source" value="1.7"/>
+	<path id="MyMCS.classpath">
+		<pathelement location="bin"/>
+		<pathelement location="lib/poi-ooxml-3.8-20120326.jar"/>
+		<pathelement location="lib/selenium-server-standalone-2.35.0.jar"/>
+		<pathelement location="lib/poi-3.7-20101029.jar"/>
+		<pathelement location="lib/testng.jar"/>
+		<pathelement location="lib/tap4j-2.0.7.jar"/>
+		<pathelement location="lib/org.hamcrest.core_1.1.0.v20090501071000.jar"/>
+		<pathelement location="lib/reportng/velocity-dep-1.4.jar"/>
+		<pathelement location="lib/reportng/reportng-1.1.4.jar"/>
+		<pathelement location="lib/reportng/guice-3.0.jar"/>
+	</path>
+	<target name="init">
+		<mkdir dir="bin"/>
+		<mkdir dir="test-output"/>
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src">
+				<exclude name="**/*.launch"/>
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+	</target>
+	<target name="clean">
+		<delete dir="bin"/>
+	</target>
+	<target name="cleanOutPut">
+		<delete dir="test-output"/>
+	</target>
+	<target depends="clean,cleanOutPut" name="cleanall"/>
+	<target depends="build-subprojects,build-project" name="build"/>
+	<target name="build-subprojects"/>
+	<target depends="init" name="build-project">
+		<echo message="${ant.project.name}: ${ant.file}"/>
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}" includeantruntime="false" encoding="UTF-8">
+			<src path="src"/>
+			<classpath refid="MyMCS.classpath"/>
+		</javac>
+	</target>
+	<echo message="-------- Compiling generated testclasses ---------"/>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+	<target name="general" depends="build" description="Run TestNG test">
+		<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+			<xmlfileset dir="bin\test\testrun\" includes="general.xml"/>
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+		</testng>
+	</target>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+	<target name="moveproject" depends="build" description="Run TestNG test">
+		<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+			<xmlfileset dir="bin\test\testrun\" includes="moveproject.xml"/>
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+		</testng>
+	</target>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+	<target name="helpdesk" depends="build" description="Run TestNG test">
+		<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+			<xmlfileset dir="bin\test\testrun\" includes="helpdesk.xml"/>
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+		</testng>
+	</target>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+	<target name="energy" depends="build" description="Run TestNG test">
+		<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+			<xmlfileset dir="bin\test\testrun\" includes="energy.xml"/>
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+		</testng>
+	</target>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+	<target name="reservation" depends="build" description="Run TestNG test">
+		<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+			<xmlfileset dir="bin\test\testrun\" includes="reservation.xml"/>
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+		</testng>
+	</target>
+	
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+	<target name="reservation2" depends="build" description="Run TestNG test">
+		<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+			<xmlfileset dir="bin\test\testrun\" includes="reservation2.xml"/>
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+		</testng>
+	</target>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+	<target name="scheduler" depends="build" description="Run TestNG test">
+		<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+			<xmlfileset dir="bin\test\testrun\" includes="scheduler.xml"/>
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+		</testng>
+	</target>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+	<target name="slamgmt" depends="build" description="Run TestNG test">
+		<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+			<xmlfileset dir="bin\test\testrun\" includes="slamgmt.xml"/>
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+		</testng>
+	</target>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+	<target name="stockmgmt.purchasing" depends="build" description="Run TestNG test">
+		<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+			<xmlfileset dir="bin\test\testrun\" includes="stockmgmt.purchasing.xml"/>
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+		</testng>
+	</target>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+	<target name="stockmgmt.txn" depends="build" description="Run TestNG test">
+		<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+			<xmlfileset dir="bin\test\testrun\" includes="stockmgmt.txn.xml"/>
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+		</testng>
+	</target>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+	<target name="stockmgmt.warehouse" depends="build" description="Run TestNG test">
+		<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+			<xmlfileset dir="bin\test\testrun\" includes="stockmgmt.warehouse.xml"/>
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+		</testng>
+	</target>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+	<target name="workorders" depends="build" description="Run TestNG test">
+		<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+			<xmlfileset dir="bin\test\testrun\" includes="workorders.xml"/>
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+		</testng>
+	</target>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+	<target name="inspections" depends="build" description="Run TestNG test">
+		<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+			<xmlfileset dir="bin\test\testrun\" includes="inspections.xml"/>
+			<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+		</testng>
+	</target>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="MyMCS.classpath"/>
+			<target name="servicecenter" depends="build" description="Run TestNG test">
+				<testng classpathref="MyMCS.classpath" haltonfailure="false" listener="org.uncommons.reportng.HTMLReporter" usedefaultlisteners="true">
+					<xmlfileset dir="bin\test\testrun\" includes="servicecenter.xml"/>
+					<sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+				</testng>
+			</target>
+	<target name="zip">
+		<echo message="-------- Zip all test results ---------"/>
+		<zip destfile="results.zip">
+			<fileset dir="test-output"/>
+		</zip>
+	</target>
+</project>
